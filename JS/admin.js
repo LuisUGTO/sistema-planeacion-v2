@@ -3,32 +3,29 @@
 async function cargarMunicipios() {
     const tabla = document.getElementById('tabla-municipios');
     
-    // Ponemos un mensaje visual de carga
     tabla.innerHTML = '<tr><td colspan="2">Conectando con Supabase...</td></tr>';
     
     try {
-        // Consultamos la tabla usando la variable 'db'
         const { data, error } = await db
             .from('cat_municipios')
-            .select('*');
+            .select('*')
+            .order('id_municipio', { ascending: true });
 
         if (error) throw error;
 
-        // Limpiamos la tabla
         tabla.innerHTML = '';
 
         if (!data || data.length === 0) {
-            tabla.innerHTML = '<tr><td colspan="2">La tabla está vacía.</td></tr>';
+            tabla.innerHTML = '<tr><td colspan="2">No se encontraron registros en la tabla.</td></tr>';
             return;
         }
 
-        // Recorremos los municipios y los pintamos en el HTML
+        // Recorremos los municipios usando los nombres exactos de tus columnas
         data.forEach(muni => {
-            // Nota: Usamos id_municipio y municipio (ajusta si tus columnas se llaman distinto)
             tabla.innerHTML += `
                 <tr>
-                    <td>${muni.id_municipio ?? muni.id}</td>
-                    <td>${muni.municipio ?? muni.nombre}</td>
+                    <td>${muni.id_municipio}</td>
+                    <td>${muni.municipio}</td>
                 </tr>
             `;
         });
@@ -39,5 +36,4 @@ async function cargarMunicipios() {
     }
 }
 
-// Ejecutar al cargar la página
 document.addEventListener('DOMContentLoaded', cargarMunicipios);
