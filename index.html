@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Sistema de Planeación V2</title>
+    <style>
+        /* Estilos generales y colores institucionales */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
+        .header { background-color: #1a365d; color: white; padding: 30px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header h1 { margin: 0 0 10px 0; font-size: 2.2rem; }
+        .header p { margin: 0; font-size: 1.2rem; color: #cbd5e0; }
+        
+        /* Contenedor de las tarjetas */
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Diseño de las tarjetas */
+        .card { background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s, box-shadow 0.2s; border-top: 5px solid transparent; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        
+        .card.captura { border-top-color: #3182ce; }
+        .card.admin { border-top-color: #4a5568; }
+        
+        .card h2 { color: #2d3748; margin-bottom: 15px; font-size: 1.5rem; }
+        .card p { color: #718096; margin-bottom: 30px; line-height: 1.5; }
+        
+        /* Botones */
+        .btn { display: inline-block; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; transition: background-color 0.2s; }
+        .btn-blue { background-color: #3182ce; }
+        .btn-blue:hover { background-color: #2b6cb0; }
+        .btn-gray { background-color: #4a5568; }
+        .btn-gray:hover { background-color: #2d3748; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Sistema de Planeación V2</h1>
+        <p>Secretaría de Cultura de Guanajuato</p>
+    </div>
+    
+    <div class="container">
+        <div class="grid">
+            <!-- Módulo de Captura -->
+            <div class="card captura">
+                <h2>📝 Captura Operativa</h2>
+                <p>Registra nuevas actividades, sube evidencias y gestiona datos de territorio y población.</p>
+                <a href="captura.html" class="btn btn-blue">Ir a Captura</a>
+            </div>
+
+            <!-- Módulo de Administración -->
+            <div class="card admin">
+                <h2>⚙️ Panel de Control</h2>
+                <p>Gestiona, visualiza y actualiza los catálogos del sistema (Municipios, Indicadores, etc.).</p>
+                <a href="admin.html" class="btn btn-gray">Ir a Administración</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
