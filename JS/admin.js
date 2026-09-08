@@ -1,21 +1,18 @@
-// js/admin.js
-
+// JS/admin.js
 async function cargarMunicipios() {
     const tabla = document.getElementById('tabla-municipios');
     
     try {
-        // Pedimos todos los datos de la tabla cat_municipios ordenados por ID
-        const { data, error } = await supabase
+        // Usamos 'db' en lugar de 'supabase'
+        const { data, error } = await db
             .from('cat_municipios')
             .select('*')
             .order('id_municipio', { ascending: true });
 
         if (error) throw error;
 
-        // Limpiamos el mensaje de "Cargando..."
         tabla.innerHTML = '';
 
-        // Recorremos los datos que llegaron y armamos las filas HTML
         data.forEach(muni => {
             tabla.innerHTML += `
                 <tr>
@@ -31,5 +28,4 @@ async function cargarMunicipios() {
     }
 }
 
-// Que la función se ejecute solita al abrir la página
 document.addEventListener('DOMContentLoaded', cargarMunicipios);
